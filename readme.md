@@ -19,6 +19,7 @@ Revision log
 - 2020/08/13 : v0 - Initial draft
 - 2020/10/20 : v1.0 - Updated with harvard and bus to provide simpler learning curve.
 - 2020/11/16 : v1.1 - Minor tweaks based on lab results.
+- 2020/11/20 : v1.2 - Added missing environment/standards part.
 
 Overall goals
 =============
@@ -599,6 +600,28 @@ for example things like testcase inputs, pre-compiled object files, or whatever
 you like. You should aim to keep the submission as small as possible (e.g. 
 using `.gitignore` files), but there is no penalty for including more than is 
 needed.
+
+Environment and Standards
+=========================
+
+The verilog should be written to adhere to the sub-set of SystemVerilog 2012
+supported by Icarus verilog 11.0. CPUs should be written to assume that
+verilog files are compiled with `-g 2012`, and test-benches should also
+provide that flag when compiling.
+
+The test environment should be assumed to be Ubuntu 18.04. Version 11.0
+of Icarus verilog is already compiled and installed. Standard base Ubuntu
+packages will be installed, along with the following packages:
+
+- `build-essential` (g++, make)
+- `git`
+- `gcc-mips-linux-gnu`
+- `qemu-system-mips`
+- `python3`
+- `cmake`
+- `verilator`
+- `libboost-dev`
+- `parallel`
 
 Clarifying notes
 ================
