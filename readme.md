@@ -20,6 +20,10 @@ Revision log
 - 2020/10/20 : v1.0 - Updated with harvard and bus to provide simpler learning curve.
 - 2020/11/16 : v1.1 - Minor tweaks based on lab results.
 - 2020/11/20 : v1.2 - Added missing environment/standards part.
+- 2020/11/25 : v1.3 - Various tweaks and clarifications
+    - Added the ability to include a provision script
+    - Fixed the typo related to PC on reset.
+    - Added gcc-mipsel-linux-gnu as explicitly available package.
 
 Overall goals
 =============
@@ -615,13 +619,32 @@ packages will be installed, along with the following packages:
 
 - `build-essential` (g++, make)
 - `git`
-- `gcc-mips-linux-gnu`
-- `qemu-system-mips`
+- `gcc-mipsel-linux-gnu` and `gcc-mips-linux-gnu`
+- `qemu-system-mips` 
 - `python3`
 - `cmake`
 - `verilator`
 - `libboost-dev`
 - `parallel`
+
+Provisioning
+------------
+
+If there is a particular package that you want to use, such as a python
+library or standard Ubuntu package, then you can include a script called `provision.sh`
+which can install such packages. You can assume that this package will be
+run once as root before your test-bench is installed.
+
+Note that this script is completely optional. Most teams probably won't need one.
+
+Exactly two types of package are allowed:
+
+- Ubuntu package installation via `apt install`. This must be a standard Ubuntu package,
+    with no use of PPAs or other package sources.
+- Python package installation via `pip install` or `pip3 install`. This must be a package
+    coming from the standard pip set of packages.
+
+
 
 Clarifying notes
 ================
